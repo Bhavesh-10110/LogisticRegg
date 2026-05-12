@@ -4,24 +4,17 @@ import streamlit as st
 import numpy as np
 import pickle
 
-# =========================================
-# LOAD MODEL
-# =========================================
+
 
 with open("model.pkl", "rb") as file:
     model = pickle.load(file)
 
-# =========================================
-# PAGE TITLE
-# =========================================
+
 
 st.title("Employee Attrition Prediction")
 
 st.write("Fill the employee details below")
 
-# =========================================
-# INPUT OPTIONS
-# =========================================
 
 education = st.selectbox(
     "Education",
@@ -94,9 +87,6 @@ worklife = st.selectbox(
     )
 )
 
-# =========================================
-# ENCODING
-# =========================================
 
 education_map = {
     "Below College": 1,
@@ -127,9 +117,7 @@ worklife_map = {
     "Best": 4
 }
 
-# =========================================
-# CONVERT VALUES
-# =========================================
+
 
 education_val = education_map[education]
 
@@ -145,9 +133,7 @@ relationship_val = satisfaction_map[relationship]
 
 worklife_val = worklife_map[worklife]
 
-# =========================================
-# PREDICTION BUTTON
-# =========================================
+
 
 if st.button("Predict"):
 
